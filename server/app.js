@@ -7,6 +7,8 @@ import { Server } from "socket.io";
 
 
 const server = http.createServer(app)
+
+//create a socket server
 const io = new Server(server, {
     cors: {
         origin: "http://localhost:5173",
