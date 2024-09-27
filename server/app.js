@@ -32,6 +32,9 @@ io.on("connection" , (socket)=>{
     socket.on("message" ,(data)=>{
             console.log(data)
             // io.emit("receiveMessage" , message)  both entire io
+            if(data.room.length==0){
+                    io.emit("broadcastmessage",data.message)
+            }
             socket.to(data.room).emit("receiveMessage",data.message)
     })
 
@@ -48,5 +51,5 @@ app.get("/", (req, res) => {
 
 
 server.listen(port, () => {
-    console.log("Listening to server")
+    console.log("Listening to server 3000")
 })
